@@ -1,4 +1,4 @@
-Status: wip, Not working
+Status: moving icons
 ========================
 Tama P1 Emulator for Flipper Zero (now in portrait mode!)
 =========================================================
@@ -29,9 +29,7 @@ Launching the app, directly from console to flipper:
 `./fbt launch_app APPSRC=applications_user/TAMA-P1`
 
 Run the following to compile icons:
-```
-scripts/assets.py icons applications/tama_p1/icons applications/tama_p1/compiled
-```
+`scripts/assets.py icons applications_user/TAMA-P1/icons applications_user/TAMA-P1/compiled`
 
 Note: you may also need to add `-Wno-unused-parameter` to `CCFLAGS` in
 `site_cons/cc.scons` to suppress unused parameter errors in TamaLIB.
