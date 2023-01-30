@@ -1,11 +1,9 @@
-Status: moving icons
-========================
-Tama P1 Emulator for Flipper Zero (now in portrait mode!)
+Tama P1 Emulator for Flipper Zero (now in portrait mode*!)
 =========================================================
 
 This is a tama P1 Emulator app for Flipper Zero, based on [TamaLIB](https://github.com/jcrona/tamalib/).
 
-![Alt Text](tama.gif)
+*icons still in landscape mode
 
 How to play
 -----------
@@ -54,6 +52,5 @@ Implemented
 To-do
 -----
 - more than one save slot
-- In-game reset
-- Test mode?
 - Volume adjustment
+- Figure out how to get Python to compile icons ; _ ;
