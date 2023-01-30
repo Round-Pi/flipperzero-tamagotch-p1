@@ -45,20 +45,14 @@ static void tama_p1_draw_callback(Canvas* const canvas, void* cb_ctx) {
         uint16_t lcd_matrix_top = (canv_height - lcd_matrix_scaled_height) / 2;
         // uint16_t lcd_matrix_left = (canv_width - lcd_matrix_scaled_width) / 2;
         uint16_t lcd_matrix_left = 64 - TAMA_LCD_ICON_SIZE;
-
-        // uint16_t lcd_icon_upper_top = lcd_matrix_top - TAMA_LCD_ICON_SIZE - TAMA_LCD_ICON_MARGIN;
         uint16_t lcd_icon_upper_left = lcd_matrix_left;
-        // uint16_t lcd_icon_lower_top =
-        //     lcd_matrix_top + lcd_matrix_scaled_height + TAMA_LCD_ICON_MARGIN;
         uint16_t lcd_icon_lower_left = lcd_matrix_left;
         uint16_t lcd_icon_spacing_horiz =
             (lcd_matrix_scaled_width - (4 * TAMA_LCD_ICON_SIZE)) / 3 + TAMA_LCD_ICON_SIZE;
 
-        uint16_t y = lcd_matrix_top;
-        // uint16_t y = 64;
+        uint16_t y = lcd_matrix_top; // 64
         for(uint8_t row = 0; row < 16; ++row) {
-            // uint16_t x = lcd_matrix_left;
-            uint16_t x = 128;
+            uint16_t x = 128; // lcd_matrix_left
             uint32_t row_pixels = g_ctx->framebuffer[row];
             for(uint8_t col = 0; col < 32; ++col) {
                 if(row_pixels & 1) {
@@ -84,16 +78,13 @@ static void tama_p1_draw_callback(Canvas* const canvas, void* cb_ctx) {
             if(lcd_icons & 1) {
                 canvas_draw_icon(canvas, y, x_ic, icons_list[i]);
             }
-            // x_ic += TAMA_LCD_ICON_SIZE + 4;
-            x_ic -= lcd_icon_spacing_horiz;
+            x_ic -= lcd_icon_spacing_horiz; // TAMA_LCD_ICON_SIZE + 4;
             lcd_icons >>= 1;
         }
 
         // Draw bottom icons
-        // y = lcd_icon_lower_top;
-        y = 84;
-        x_ic = lcd_icon_lower_left;
-        // x_ic = 64 - TAMA_LCD_ICON_SIZE;
+        y = 84; // lcd_icon_lower_top
+        x_ic = lcd_icon_lower_left; // 64 - TAMA_LCD_ICON_SIZE
         for(uint8_t i = 4; i < 8; ++i) {
             // canvas_draw_frame(canvas, x_ic, y, TAMA_LCD_ICON_SIZE, TAMA_LCD_ICON_SIZE);
             if(lcd_icons & 1) {
