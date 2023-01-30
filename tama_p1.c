@@ -37,18 +37,19 @@ static void tama_p1_draw_callback(Canvas* const canvas, void* cb_ctx) {
     } else {
         // FURI_LOG_D(TAG, "Drawing frame");
         // Calculate positioning
-        uint16_t canv_width = canvas_width(canvas);
+        // uint16_t canv_width = canvas_width(canvas);
         uint16_t canv_height = canvas_height(canvas);
         uint16_t lcd_matrix_scaled_width = 32 * TAMA_SCREEN_SCALE_FACTOR;
         uint16_t lcd_matrix_scaled_height = 16 * TAMA_SCREEN_SCALE_FACTOR;
         // uint16_t lcd_matrix_top = 0;
         uint16_t lcd_matrix_top = (canv_height - lcd_matrix_scaled_height) / 2;
-        uint16_t lcd_matrix_left = (canv_width - lcd_matrix_scaled_width) / 2;
+        // uint16_t lcd_matrix_left = (canv_width - lcd_matrix_scaled_width) / 2;
+        uint16_t lcd_matrix_left = 64 - TAMA_LCD_ICON_SIZE;
 
-        uint16_t lcd_icon_upper_top = lcd_matrix_top - TAMA_LCD_ICON_SIZE - TAMA_LCD_ICON_MARGIN;
+        // uint16_t lcd_icon_upper_top = lcd_matrix_top - TAMA_LCD_ICON_SIZE - TAMA_LCD_ICON_MARGIN;
         uint16_t lcd_icon_upper_left = lcd_matrix_left;
-        uint16_t lcd_icon_lower_top =
-            lcd_matrix_top + lcd_matrix_scaled_height + TAMA_LCD_ICON_MARGIN;
+        // uint16_t lcd_icon_lower_top =
+        //     lcd_matrix_top + lcd_matrix_scaled_height + TAMA_LCD_ICON_MARGIN;
         uint16_t lcd_icon_lower_left = lcd_matrix_left;
         uint16_t lcd_icon_spacing_horiz =
             (lcd_matrix_scaled_width - (4 * TAMA_LCD_ICON_SIZE)) / 3 + TAMA_LCD_ICON_SIZE;
@@ -74,27 +75,31 @@ static void tama_p1_draw_callback(Canvas* const canvas, void* cb_ctx) {
         uint8_t lcd_icons = g_ctx->icons;
 
         // Draw top icons
-        y = lcd_icon_upper_top;
+        // y = lcd_icon_upper_top;
+        y = 16;
         // y = 64 - TAMA_LCD_ICON_SIZE;
         uint16_t x_ic = lcd_icon_upper_left;
+        // uint16_t x_ic = 64 - TAMA_LCD_ICON_SIZE;
         for(uint8_t i = 0; i < 4; ++i) {
             if(lcd_icons & 1) {
-                canvas_draw_icon(canvas, x_ic, y, icons_list[i]);
+                canvas_draw_icon(canvas, y, x_ic, icons_list[i]);
             }
             // x_ic += TAMA_LCD_ICON_SIZE + 4;
-            x_ic += lcd_icon_spacing_horiz;
+            x_ic -= lcd_icon_spacing_horiz;
             lcd_icons >>= 1;
         }
 
         // Draw bottom icons
-        y = lcd_icon_lower_top;
+        // y = lcd_icon_lower_top;
+        y = 96;
         x_ic = lcd_icon_lower_left;
+        // x_ic = 64 - TAMA_LCD_ICON_SIZE;
         for(uint8_t i = 4; i < 8; ++i) {
             // canvas_draw_frame(canvas, x_ic, y, TAMA_LCD_ICON_SIZE, TAMA_LCD_ICON_SIZE);
             if(lcd_icons & 1) {
-                canvas_draw_icon(canvas, x_ic, y, icons_list[i]);
+                canvas_draw_icon(canvas, y, x_ic, icons_list[i]);
             }
-            x_ic += lcd_icon_spacing_horiz;
+            x_ic -= lcd_icon_spacing_horiz;
             lcd_icons >>= 1;
         }
     }
