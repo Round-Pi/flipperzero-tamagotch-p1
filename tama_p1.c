@@ -63,7 +63,7 @@ static void tama_p1_draw_callback(Canvas* const canvas, void* cb_ctx) {
             for(uint8_t col = 0; col < 32; ++col) {
                 if(row_pixels & 1) {
                     canvas_draw_box(
-                        canvas, y + 32, x - 64, TAMA_SCREEN_SCALE_FACTOR, TAMA_SCREEN_SCALE_FACTOR);
+                        canvas, y + 32, x - 66, TAMA_SCREEN_SCALE_FACTOR, TAMA_SCREEN_SCALE_FACTOR);
                 }
                 x -= TAMA_SCREEN_SCALE_FACTOR;
                 row_pixels >>= 1;
@@ -76,7 +76,7 @@ static void tama_p1_draw_callback(Canvas* const canvas, void* cb_ctx) {
 
         // Draw top icons
         // y = lcd_icon_upper_top;
-        y = 16;
+        y = 30;
         // y = 64 - TAMA_LCD_ICON_SIZE;
         uint16_t x_ic = lcd_icon_upper_left;
         // uint16_t x_ic = 64 - TAMA_LCD_ICON_SIZE;
@@ -91,7 +91,7 @@ static void tama_p1_draw_callback(Canvas* const canvas, void* cb_ctx) {
 
         // Draw bottom icons
         // y = lcd_icon_lower_top;
-        y = 96;
+        y = 84;
         x_ic = lcd_icon_lower_left;
         // x_ic = 64 - TAMA_LCD_ICON_SIZE;
         for(uint8_t i = 4; i < 8; ++i) {
