@@ -14,7 +14,7 @@ Rename this to `rom.bin`.
 - Left button is A.
 - Down or OK is B. 
 - Right button is C. 
-- Holding the Up button functions the same as press both A and C, which mutes the volume. 
+- Up button is A and C (mute/change in-game time). 
 - Hold the Back button to save and exit.
 
 
