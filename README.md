@@ -3,12 +3,12 @@ Tama P1 Emulator for Flipper Zero (now in portrait mode*!)
 
 This is a tama P1 Emulator app for Flipper Zero, based on [TamaLIB](https://github.com/jcrona/tamalib/).
 
-<div style="text-align: right">*icons still in landscape mode</div>
+**icons still in landscape mode*
 
 How to play
 -----------
 Create a `tama_p1` folder in your microSD card, and put the ROM as `rom.bin`.
-Use a search engine to find the Tamagotchi ROM. There is a file named `a` or `tama.b`. 
+Use a search engine to find the Tamagotchi ROM. There is a file named `tama.b`. 
 Rename this to `rom.bin`. 
 
 - Left button is A.
@@ -47,18 +47,3 @@ python .\serial_logger.py
 ```
 ./fbt launch_app APPSRC=applications\plugins\tama_p1;  python .\serial_logger.py
 ```
-
-
-Implemented
------------
-- Basic emulation
-- Input
-- Sound
-- Saving/Loading emulator state (stored in `/ext/tama_p1/save.bin`)
-- Mute button combo shortcut (Up = A+C)
-
-To-do
------
-- more than one save slot
-- Volume adjustment
-- Figure out how to get Python to compile icons ; _ ;
